@@ -14,7 +14,7 @@ bot.on(message("text"), async (ctx: Context) => {
 });
 
 bot.command("start", async (ctx: Context) => {
-  await ctx.reply("STARTED!");
+  await ctx.reply("Let's chat!");
 });
 
 // TODO: add error handling

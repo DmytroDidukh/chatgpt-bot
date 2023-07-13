@@ -13,6 +13,7 @@ interface ENV {
     PORT: number | undefined;
     BOT_TOKEN: string | undefined;
     AUTHORIZED_USERS: string | undefined;
+    OPENAI_API_KEY: string | undefined;
 }
 
 interface Config {
@@ -20,6 +21,7 @@ interface Config {
     PORT: number;
     BOT_TOKEN: string;
     AUTHORIZED_USERS: string;
+    OPENAI_API_KEY: string;
 }
 
 // Loading process.env as ENV interface
@@ -30,6 +32,7 @@ const getConfig = (): ENV => {
         PORT: process.env.PORT ? Number(process.env.PORT) : 8080,
         BOT_TOKEN: process.env.BOT_TOKEN,
         AUTHORIZED_USERS: process.env.AUTHORIZED_USERS,
+        OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     };
 };
 
