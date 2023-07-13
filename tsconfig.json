@@ -22,8 +22,8 @@
     "paths": {
       "config/*": ["src/config/*"],
       "constants/*": ["src/constants/*"],
-      "types/*": ["src/types/*"],
-      "utils/*": ["src/utils/*"]
+      "middlewares/*": ["src/middlewares/*"],
+      "typescript/*": ["src/typescript/*"]
     }
   },
   "include": ["src/**/*.ts", "global.d.ts"],
