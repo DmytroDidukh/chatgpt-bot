@@ -17,7 +17,14 @@ bot.command("start", async (ctx: Context) => {
   await ctx.reply("STARTED!");
 });
 
-bot.launch().then(() => console.log("BOT STARTED"));
+// TODO: add error handling
+function startBot() {
+  console.log("BOT STARTED");
+
+  bot.launch();
+}
+
+startBot()
 
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"))
