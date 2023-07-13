@@ -22,6 +22,7 @@
     "paths": {
       "config/*": ["src/config/*"],
       "constants/*": ["src/constants/*"],
+      "handlers/*": ["src/handlers/*"],
       "middlewares/*": ["src/middlewares/*"],
       "typescript/*": ["src/typescript/*"]
     }
