@@ -1,11 +1,11 @@
-import { Context } from "telegraf";
+import { Context } from 'telegraf';
 
 interface ISession {
-  authenticated: boolean;
+    authenticated: boolean;
 }
 
 interface IContext extends Context {
-  session?: ISession;
+    session?: ISession;
 }
 
 export { IContext };
