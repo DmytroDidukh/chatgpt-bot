@@ -24,6 +24,7 @@
       "constants/*": ["src/constants/*"],
       "handlers/*": ["src/handlers/*"],
       "middlewares/*": ["src/middlewares/*"],
+      "services/*": ["src/services/*"],
       "typescript/*": ["src/typescript/*"]
     }
   },

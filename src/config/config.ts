@@ -15,6 +15,7 @@ interface ENV {
     BOT_TOKEN: string | undefined;
     AUTHORIZED_USERS: string | undefined;
     OPENAI_API_KEY: string | undefined;
+    OPENAI_API_ORGANIZATION_ID: string | undefined;
 }
 
 interface Config {
@@ -23,6 +24,7 @@ interface Config {
     BOT_TOKEN: string;
     AUTHORIZED_USERS: string;
     OPENAI_API_KEY: string;
+    OPENAI_API_ORGANIZATION_ID: string;
 }
 
 // Loading process.env as ENV interface
@@ -34,6 +36,7 @@ const getConfig = (): ENV => {
         BOT_TOKEN: process.env.BOT_TOKEN,
         AUTHORIZED_USERS: process.env.AUTHORIZED_USERS,
         OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+        OPENAI_API_ORGANIZATION_ID: process.env.OPENAI_API_ORGANIZATION_ID,
     };
 };
 

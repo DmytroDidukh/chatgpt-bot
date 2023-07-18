@@ -89,6 +89,11 @@ module.exports = {
                     "position": "after"
                 },
                 {
+                    "pattern": "services/**",
+                    "group": "internal",
+                    "position": "after"
+                },
+                {
                     "pattern": "./**",
                     "group": "sibling",
                     "position": "after"
