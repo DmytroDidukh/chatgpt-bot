@@ -4,8 +4,13 @@ interface ISession {
     authenticated: boolean;
 }
 
+interface IMessage {
+    text: string;
+}
+
 interface IContext extends Context {
     session?: ISession;
+    message: IMessage & Context['message'];
 }
 
 export { IContext };

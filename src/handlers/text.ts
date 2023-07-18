@@ -1,8 +1,12 @@
-import { Context } from 'telegraf';
+import { IContext } from 'typescript/interfaces';
 
-async function textHandler(ctx: Context): Promise<void> {
+import { openaiService } from 'services/index';
+
+async function textHandler(ctx: IContext): Promise<void> {
     try {
-        await ctx.reply('Hello World!');
+        const answer = await openaiService.getAnswer(ctx.message.text);
+        console.log('ANSWER: ', answer);
+        await ctx.reply(answer);
     } catch (e) {
         console.log('TEXT ERROR: ', e.message);
     }

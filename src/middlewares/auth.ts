@@ -1,6 +1,6 @@
-import { IContext } from 'typescript/interfaces';
-
 import config from 'config/config';
+
+import type { IContext } from 'typescript/interfaces';
 
 const authorizedUsers: string[] = config.AUTHORIZED_USERS.split(',');
 
