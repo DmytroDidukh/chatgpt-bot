@@ -3,7 +3,7 @@ import { message } from 'telegraf/filters';
 
 import config from 'config/config';
 import { startHandler, textHandler } from 'handlers/index';
-import { authMiddleware } from 'middlewares/auth';
+import { authMiddlewares, errorMiddlewares } from 'middlewares/index';
 
 import type { IContext } from 'typescript/interfaces';
 
@@ -11,13 +11,15 @@ const bot = new Telegraf<IContext>(config.BOT_TOKEN);
 
 // MIDDLEWARES
 bot.use(session());
-bot.use(authMiddleware.isAuthenticated);
+bot.use(authMiddlewares.isAuthenticated);
 
 // HANDLERS
 bot.on(message('text'), textHandler);
 bot.command('start', startHandler);
 
-// TODO: add error handling
+// ERROR HANDLING
+bot.catch(errorMiddlewares.catchBotError);
+
 function launchBot() {
     console.log('BOT STARTED');
 

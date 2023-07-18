@@ -20,6 +20,6 @@ function isAuthenticated(ctx: IContext, next: () => Promise<void>) {
     return ctx.reply('ERROR: FORBIDDEN');
 }
 
-const authMiddleware = { isAuthenticated };
+const authMiddlewares = { isAuthenticated };
 
-export { authMiddleware };
+export { authMiddlewares };
