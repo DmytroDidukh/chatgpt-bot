@@ -21,7 +21,7 @@
     "moduleResolution": "node",
     "paths": {
       "config/*": ["src/config/*"],
-      "constants/*": ["src/constants/*"],
+      "consts/*": ["src/consts/*"],
       "handlers/*": ["src/handlers/*"],
       "middlewares/*": ["src/middlewares/*"],
       "services/*": ["src/services/*"],
