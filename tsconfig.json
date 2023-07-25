@@ -1,4 +1,12 @@
 {
+  "_moduleAliases": {
+    "config": "src/config",
+    "consts": "src/consts",
+    "handlers": "src/handlers",
+    "middlewares": "src/middlewares",
+    "services": "src/services",
+    "typescript": "src/typescript"
+  },
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -29,7 +37,7 @@
       "typescript/*": ["src/typescript/*"]
     }
   },
-  "include": ["src/**/*.ts", "global.d.ts"],
+  "include": ["src/**/*.ts", "global.d.ts", "src/typescript/**/*.d.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "require": ["tsconfig-paths/register"],

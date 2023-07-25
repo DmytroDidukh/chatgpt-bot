@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start:dev": "nodemon src/index.ts",
-    "start:prod": "npm run build && node build/index.js",
-    "build": "rimraf ./build && tsc",
+    "start:dev": "nodemon -r tsconfig-paths/register src/index.ts",
+    "start:prod": "npm run build && node -r module-alias/register ./build/index.js",
+    "build": "rimraf ./build  && rimraf ./tsconfig.tsbuildinfo && tsc && xcopy /s /y \"src\\config\\config.env\" \"build\\config\\\"",
     "check-ts": "tsc --noEmit",
     "watch": "tsc -w",
     "lint:ts": "eslint src/**/*.ts --fix",
@@ -27,12 +27,22 @@
   "keywords": [],
   "author": "dmytro.didukh",
   "license": "ISC",
+  "_moduleAliases": {
+    "config": "build/config",
+    "consts": "build/consts",
+    "handlers": "build/handlers",
+    "middlewares": "build/middlewares",
+    "services": "build/services",
+    "typescript": "build/typescript"
+  },
   "dependencies": {
     "dotenv": "~16.3.1",
+    "module-alias": "~2.2.3",
     "openai": "~3.3.0",
     "telegraf": "~4.12.2"
   },
   "devDependencies": {
+    "@types/module-alias": "~2.0.1",
     "@types/node": "~18.14.6",
     "@typescript-eslint/eslint-plugin": "~5.52.0",
     "@typescript-eslint/parser": "~5.52.0",
