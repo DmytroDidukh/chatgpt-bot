@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon -r tsconfig-paths/register src/index.ts",
     "start:prod": "npm run build && node -r module-alias/register ./build/index.js",
-    "build": "rimraf ./build  && rimraf ./tsconfig.tsbuildinfo && tsc && xcopy /s /y \"src\\config\\config.env\" \"build\\config\\\"",
+    "build": "rimraf ./build  && rimraf ./tsconfig.tsbuildinfo && tsc",
     "check-ts": "tsc --noEmit",
     "watch": "tsc -w",
     "lint:ts": "eslint src/**/*.ts --fix",
