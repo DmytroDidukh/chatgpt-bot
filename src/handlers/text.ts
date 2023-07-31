@@ -4,11 +4,16 @@ import { openaiService } from 'services/index';
 
 async function textHandler(ctx: IContext): Promise<void> {
     try {
-        // TODO: setup a thinking flow
-        await ctx.reply("Hang on! I'm thinking...");
+        const chatMessage = await ctx.reply('...');
 
         const answer = await openaiService.getAnswer(ctx.message.text);
-        await ctx.reply(answer);
+
+        await ctx.telegram.editMessageText(
+            chatMessage.chat.id,
+            chatMessage.message_id,
+            null,
+            answer,
+        );
     } catch (e) {
         console.log('TEXT ERROR: ', e.message);
     }
