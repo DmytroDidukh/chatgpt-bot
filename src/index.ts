@@ -2,8 +2,8 @@ import { session, Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters';
 
 import config from 'config/config';
-import { BOT_COMMANDS } from 'consts/bot';
-import { startHandler, textHandler } from 'handlers/index';
+import { BOT_COMMANDS } from 'consts/chat';
+import { helpHandler, startHandler, textHandler } from 'handlers/index';
 import { authMiddlewares, chatMiddlewares, errorMiddlewares } from 'middlewares/index';
 
 import type { IContext } from 'typescript/interfaces';
@@ -17,6 +17,8 @@ bot.use(chatMiddlewares.validateMessage);
 
 // HANDLERS
 bot.command(BOT_COMMANDS.START, startHandler);
+bot.command(BOT_COMMANDS.HELP, helpHandler);
+
 bot.on(message('text'), textHandler);
 
 // ERROR HANDLING

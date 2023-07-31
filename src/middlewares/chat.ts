@@ -1,25 +1,21 @@
-import { IContext } from 'typescript/interfaces';
+import { BOT_COMMANDS } from 'consts/chat';
+import { chatService } from 'services/chat';
 
-import { BOT_COMMANDS } from 'consts/bot';
-
-const knownCommands: string[] = Object.values(BOT_COMMANDS);
+import type { IContext } from 'typescript/interfaces';
 
 async function validateMessage(ctx: IContext, next: () => Promise<void>): Promise<void> {
     const text = ctx.message.text;
 
-    // TODO: move it to a separate function
     if (text.startsWith('/')) {
         const command = text.substring(1);
+        const isValidCommand = chatService.checkCommand(command);
 
-        if (!knownCommands.includes(command)) {
-            // TODO: redirect to /help command
+        if (!isValidCommand) {
             await ctx.reply(
-                // eslint-disable-next-line max-len
-                `I'm sorry, I don't recognize the command "/${command}". Try using /help to see a list of available commands.`,
+                `Unrecognized command: "/${command}". Use /${BOT_COMMANDS.HELP} for a list of available commands.`,
             );
             return;
         }
-
         return next();
     }
 
