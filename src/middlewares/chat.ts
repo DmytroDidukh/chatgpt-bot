@@ -22,6 +22,12 @@ async function validateMessage(ctx: IContext, next: () => Promise<void>): Promis
     return next();
 }
 
-const chatMiddlewares = { validateMessage };
+async function catchError(error, ctx: IContext): Promise<void> {
+    console.log(`Encountered an error for ${ctx.updateType}`, error.message);
+
+    await ctx.reply(`ERROR OCCURRED: ${error.message}. PLEASE, TRY AGAIN`);
+}
+
+const chatMiddlewares = { validateMessage, catchError };
 
 export { chatMiddlewares };
