@@ -10,8 +10,6 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 // as someone could skip these variables or not setup a .env file at all
 
 interface ENV {
-    NODE_ENV: string | undefined;
-    PORT: number | undefined;
     BOT_TOKEN: string | undefined;
     AUTHORIZED_USERS: string | undefined;
     OPENAI_API_KEY: string | undefined;
@@ -19,8 +17,6 @@ interface ENV {
 }
 
 interface Config {
-    NODE_ENV: string;
-    PORT: number;
     BOT_TOKEN: string;
     AUTHORIZED_USERS: string;
     OPENAI_API_KEY: string;
@@ -31,8 +27,6 @@ interface Config {
 
 const getConfig = (): ENV => {
     return {
-        NODE_ENV: process.env.NODE_ENV,
-        PORT: process.env.PORT ? Number(process.env.PORT) : 8080,
         BOT_TOKEN: process.env.BOT_TOKEN,
         AUTHORIZED_USERS: process.env.AUTHORIZED_USERS,
         OPENAI_API_KEY: process.env.OPENAI_API_KEY,
