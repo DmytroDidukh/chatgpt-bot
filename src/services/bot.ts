@@ -6,8 +6,6 @@ async function skipPendingUpdates(bot: Telegraf<IContext>): Promise<void> {
     // Get all pending updates
     const updates = await bot.telegram.getUpdates(null, null, null, null);
 
-    console.log(bot);
-
     if (updates.length > 0) {
         // Get the latest update_id
         const lastUpdateId = updates[updates.length - 1].update_id;
