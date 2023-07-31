@@ -18,6 +18,7 @@ const BOT_COMMANDS_CONFIG: Record<BOT_COMMANDS, BotCommandConfig> = {
         name: BOT_COMMANDS.HELP,
         description: 'Displays supported commands.',
     },
+    // TODO: Define help for Admin by differentiating between Admin and User.
     [BOT_COMMANDS.KILL]: {
         name: BOT_COMMANDS.KILL,
         description: 'Stops the bot.',

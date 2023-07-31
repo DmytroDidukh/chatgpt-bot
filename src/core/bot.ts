@@ -6,6 +6,7 @@ import config from 'config/config';
 import { BOT_COMMANDS } from 'consts/chat';
 import { helpHandler, killHandler, startHandler, textHandler } from 'handlers/index';
 import { authMiddlewares, chatMiddlewares } from 'middlewares/index';
+import { botService } from 'services/bot';
 
 import type { IContext } from 'typescript/interfaces';
 
@@ -26,9 +27,12 @@ bot.on(message('text'), textHandler);
 // ERROR HANDLING
 bot.catch(chatMiddlewares.catchError);
 
-function launchBot() {
-    console.log('BOT LAUNCHED');
+async function launchBot() {
+    console.log('Skipping pending updates...');
+    await botService.skipPendingUpdates(bot);
+    console.log('Bot is launching...');
     bot.launch();
+    console.log('Bot has been launched.');
 }
 
 export { bot, launchBot };
