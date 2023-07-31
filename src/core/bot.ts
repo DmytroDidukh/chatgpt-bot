@@ -4,7 +4,7 @@ import { message } from 'telegraf/filters';
 
 import config from 'config/config';
 import { BOT_COMMANDS } from 'consts/chat';
-import { helpHandler, killHandler, startHandler, textHandler } from 'handlers/index';
+import { helpHandler, killHandler, launchHandler, startHandler, textHandler } from 'handlers/index';
 import { authMiddlewares, chatMiddlewares } from 'middlewares/index';
 import { botService } from 'services/bot';
 
@@ -20,6 +20,7 @@ bot.use(chatMiddlewares.validateMessage);
 // HANDLERS
 bot.command(BOT_COMMANDS.START, startHandler);
 bot.command(BOT_COMMANDS.KILL, killHandler);
+bot.command(BOT_COMMANDS.LAUNCH, launchHandler);
 bot.command(BOT_COMMANDS.HELP, helpHandler);
 
 bot.on(message('text'), textHandler);
