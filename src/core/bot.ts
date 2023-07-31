@@ -1,5 +1,4 @@
-import { Telegraf } from 'telegraf';
-import { session } from 'telegraf';
+import { session, Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters';
 
 import config from 'config/config';
