@@ -1,3 +1,4 @@
+import express from 'express';
 import { session, Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters';
 
@@ -24,9 +25,20 @@ bot.on(message('text'), textHandler);
 // ERROR HANDLING
 bot.catch(chatMiddlewares.catchError);
 
+// Express app to keep Heroku dyno awake
+const app = express();
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+// Listen on port
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Express server is running on port ${port}`);
+});
+
 function launchBot() {
     console.log('BOT STARTED');
-
     bot.launch();
 }
 
