@@ -13,7 +13,9 @@ function isAuthenticated(ctx: IContext, next: () => Promise<void>) {
     const isUserAuthorized = authorizedUsers.includes(userId);
 
     if (isUserAuthorized) {
-        ctx.session ??= { authenticated: true };
+        const isUserAdmin = config.ADMIN_ID === userId;
+
+        ctx.session ??= { authenticated: true, isAdmin: isUserAdmin };
         return next();
     }
 

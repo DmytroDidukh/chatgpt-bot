@@ -2,6 +2,7 @@ import { Context } from 'telegraf';
 
 interface ISession {
     authenticated: boolean;
+    isAdmin: boolean;
 }
 
 interface IMessage {
