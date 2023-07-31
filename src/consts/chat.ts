@@ -1,5 +1,6 @@
 enum BOT_COMMANDS {
     START = 'start',
+    KILL = 'kill',
     HELP = 'help',
 }
 
@@ -16,6 +17,10 @@ const BOT_COMMANDS_CONFIG: Record<BOT_COMMANDS, BotCommandConfig> = {
     [BOT_COMMANDS.HELP]: {
         name: BOT_COMMANDS.HELP,
         description: 'Displays supported commands.',
+    },
+    [BOT_COMMANDS.KILL]: {
+        name: BOT_COMMANDS.KILL,
+        description: 'Stops the bot.',
     },
 };
 

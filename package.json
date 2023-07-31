@@ -30,6 +30,7 @@
   "_moduleAliases": {
     "config": "build/config",
     "consts": "build/consts",
+    "core": "build/core",
     "handlers": "build/handlers",
     "middlewares": "build/middlewares",
     "services": "build/services",
